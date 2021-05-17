@@ -1,0 +1,120 @@
+/* CUSTOM PROPERTIES
+  ============================= */
+:root {
+  --ff-base: 'Rajdhani', sans-serif;
+  --fs-small: 1rem;
+  --fs-base: 1.6rem;
+  --fs-large: 2.2rem;
+  --fw-light: 300;
+  --fw-base: 400;
+  --fw-medium: 500;
+  --c-light: #e1e2ef;
+  --c-gray: #aaaaaa;
+  --c-colorful: #8900f2;
+  --c-dark: #424c55;
+}
+/* BASE
+  ============================= */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+body {
+  font-family: var(--ff-base);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-base);
+  color: var(--c-dark);
+}
+figure {
+  margin: 0;
+}
+img {
+  width: 100%;
+  height: auto;
+}
+h1,
+label {
+  font-size: var(--fs-large);
+  font-weight: var(--fw-medium);
+  text-align: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+label {
+  color: var(--c-colorful);
+}
+input {
+  border-radius: 2rem;
+  border: 0.1rem solid var(--c-colorful);
+  padding: 1rem;
+  margin: 1rem 0;
+}
+input:hover {
+  cursor: pointer;
+}
+input:focus {
+  outline: none;
+  border: 0.1rem solid var(--c-light);
+  color: var(--c-colorful);
+}
+h2 {
+  margin-left: 1rem;
+}
+h2 span {
+  font-weight: var(--fw-light);
+}
+figure {
+  margin-bottom: 4rem;
+}
+figcaption {
+  color: var(--c-colorful);
+  font-size: var(--fs-large);
+  padding: 0 1rem;
+}
+figcaption span {
+  color: var(--c-dark);
+  font-size: var(--fs-base);
+}
+/* GLOBALS
+  ============================= */
+.container {
+  width: 100%;
+  min-height: 80vh;
+  margin: auto;
+}
+/* MEDIA QUERIES
+  ============================= */
+@media screen and (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}

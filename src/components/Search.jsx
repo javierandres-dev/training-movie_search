@@ -1,30 +1,42 @@
+import { Spinner } from 'components/Spinner';
 import { getMovies } from 'helpers/requests';
 import React, { useState } from 'react';
 
-export const Search = () => {
-  const [title, setTitle] = useState('');
+export const Search = ({ title, setTitle, setMovies, setMillis }) => {
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setTitle(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    getMovies(title);
-    setTitle('');
+    setLoading(true);
+    const start = Date.now();
+    const res = await getMovies(title);
+    setMovies(res);
+    const end = Date.now();
+    setMillis(end - start);
+    setLoading(false);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor='search'>movie search</label>
-      <input
-        type='search'
-        name='search'
-        id='search'
-        placeholder='Movie title to search'
-        value={title}
-        onChange={handleChange}
-      />
-    </form>
+    <>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <label htmlFor='search'>search</label>
+          <input
+            type='search'
+            name='search'
+            id='search'
+            placeholder='Title to search'
+            value={title}
+            onChange={handleChange}
+          />
+        </form>
+      )}
+    </>
   );
 };

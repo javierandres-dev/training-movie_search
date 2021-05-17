@@ -1,18 +1,24 @@
-import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Results } from './components/Results';
-import { Home } from './components/Home';
-import { Error404 } from './components/Error404';
+import 'styles/App.css';
+import React, { useState } from 'react';
+import { Home } from 'components/Home';
 
 function App() {
+  const [title, setTitle] = useState('');
+  const [movies, setMovies] = useState(null);
+  const [movie, setMovie] = useState(null);
+  const [millis, setMillis] = useState(null);
+
   return (
-    <Router>
-      <Switch>
-        <Route exact path='/results' component={Results} />
-        <Route exact path='/' component={Home} />
-        <Route path='*' component={Error404} />
-      </Switch>
-    </Router>
+    <Home
+      title={title}
+      setTitle={setTitle}
+      movies={movies}
+      setMovies={setMovies}
+      movie={movie}
+      setMovie={setMovie}
+      millis={millis}
+      setMillis={setMillis}
+    />
   );
 }
 
