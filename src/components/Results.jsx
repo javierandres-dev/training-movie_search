@@ -11,19 +11,18 @@ export const Results = ({ movies, millis, movie, setMovie }) => {
     e.preventDefault();
     setLoading(true);
     const res = await getMovie(e.target.name);
-    console.log(res);
     setMovie(res);
     setLoading(false);
   };
 
   return (
-    <section id='top'>
+    <>
       {loading && <Spinner />}
       {movie ? (
         <Movie movie={movie} />
       ) : (
         <Movies movies={movies} millis={millis} handleClick={handleClick} />
       )}
-    </section>
+    </>
   );
 };

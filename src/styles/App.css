@@ -66,24 +66,6 @@ input:focus {
   border: 0.1rem solid var(--c-light);
   color: var(--c-colorful);
 }
-h2 {
-  margin-left: 1rem;
-}
-h2 span {
-  font-weight: var(--fw-light);
-}
-figure {
-  margin-bottom: 4rem;
-}
-figcaption {
-  color: var(--c-colorful);
-  font-size: var(--fs-large);
-  padding: 0 1rem;
-}
-figcaption span {
-  color: var(--c-dark);
-  font-size: var(--fs-base);
-}
 /* GLOBALS
   ============================= */
 .container {
@@ -91,30 +73,111 @@ figcaption span {
   min-height: 80vh;
   margin: auto;
 }
+/* MOVIES, MOVIE
+  ============================= */
+.movies h2,
+.movie h2 {
+  margin-left: 1rem;
+}
+.movies h2 span,
+.movie h2 span {
+  font-weight: var(--fw-light);
+}
+.movies figure,
+.movie figure {
+  margin-bottom: 4rem;
+}
+/* MOVIES
+  ============================= */
+.movies figcaption {
+  color: var(--c-colorful);
+  font-size: var(--fs-large);
+  padding: 0 1rem;
+}
+.movies figcaption span {
+  color: var(--c-dark);
+  font-size: var(--fs-base);
+}
+/* MOVIE
+  ============================= */
+.movie p {
+  padding: 0 1rem;
+}
+.movie p span {
+  border: 0.1rem solid var(--c-dark);
+  padding: 0 0.5rem;
+}
+.movie b {
+  font-size: var(--fs-large);
+}
+.movie ul {
+  list-style: none;
+  padding: 0 1rem;
+}
+.movie ul li {
+  margin-bottom: 0.8rem;
+}
+.movie ul li span {
+  font-weight: var(--fw-medium);
+}
 /* MEDIA QUERIES
   ============================= */
 @media screen and (min-width: 576px) {
   .container {
     max-width: 540px;
   }
+
+  form {
+    width: min(48rem, 100%);
+    margin: auto;
+  }
 }
 @media screen and (min-width: 768px) {
   .container {
     max-width: 720px;
+  }
+  .movies--container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .movie--container {
+    display: flex;
+  }
+  .movie--container figure {
+    min-width: 30rem;
+  }
+  .movie--container p {
+    margin-top: 0;
   }
 }
 @media screen and (min-width: 992px) {
   .container {
     max-width: 960px;
   }
+  .movies--container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .movie--container {
+    gap: 1rem;
+  }
 }
 @media screen and (min-width: 1200px) {
   .container {
     max-width: 1140px;
   }
+  .movies--container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .movie--container {
+    gap: 2rem;
+  }
 }
 @media screen and (min-width: 1400px) {
   .container {
     max-width: 1320px;
+  }
+  .movies--container {
+    grid-template-columns: repeat(5, 1fr);
   }
 }

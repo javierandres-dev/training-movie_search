@@ -2,7 +2,7 @@ import { Spinner } from 'components/Spinner';
 import { getMovies } from 'helpers/requests';
 import React, { useState } from 'react';
 
-export const Search = ({ title, setTitle, setMovies, setMillis }) => {
+export const Search = ({ title, setTitle, setMovies, setMillis, setMovie }) => {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -12,6 +12,7 @@ export const Search = ({ title, setTitle, setMovies, setMillis }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setMovie(null);
     const start = Date.now();
     const res = await getMovies(title);
     setMovies(res);

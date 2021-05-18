@@ -20,6 +20,7 @@ export const Home = ({
         setTitle={setTitle}
         setMovies={setMovies}
         setMillis={setMillis}
+        setMovie={setMovie}
       />
       {movies && (
         <Results
